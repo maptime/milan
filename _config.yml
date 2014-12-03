@@ -2,9 +2,9 @@ baseurl: /milan
 permalink: pretty
 markdown: kramdown
 paginate: 5
-repo: milan
+repo: starter
 github_org: maptime
 maptime:
-  chapter: Milan
+  chapter: Maptime Milan
   twitter: @maptimeMI
   #disqus: YOUR DISQUS USERNAME
