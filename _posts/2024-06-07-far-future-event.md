@@ -13,3 +13,5 @@ Martedì 16 Dicembre 2014
 Politecnico di Milano, Scuola di Architettura e Società (Aula R1)  
 via Ampére, n° 2  
 20100 Milano, Italia
+
+

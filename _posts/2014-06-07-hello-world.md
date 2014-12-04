@@ -13,3 +13,9 @@ Non dimenticate di portare il vostro laptop!
 # Maptime is coming to Milan
 
 Maptime is a regular mapping meeting in Milano, a chapter of the international network Maptime!. Starting in December2014, we will meet to work and draw on maps, learn about geospatial data, and teach each other the latest cartographic tools. Maptime is time for mapmaking. Our mission is to open the doors of cartographic possibility to anyone interested by creating a time and space for collaborative learning, exploration, and map creation using mapping tools and technologies. This open learning environment for all levels and degrees of knowledge offers intentional support for the beginner. Maptime is hands-on, so don’t forget to bring your laptop! All skill levels are welcome. Newbies are especially welcome!
+
+### Organizzatori:
+[Michele Ferretti](twitter.com/miccferr)  
+[Daniele Villa](twitter.com/danielevilla)  
+Fabio Manfredini
+
