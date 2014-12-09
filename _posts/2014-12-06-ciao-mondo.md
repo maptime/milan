@@ -1,4 +1,5 @@
 ---
+title: Ciao, Mondo!
 layout: default
 ---
 
