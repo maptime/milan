@@ -16,5 +16,5 @@ L'appuntamento è con il prossimo Maptime! a gennaio, nel bellissimo Fab-Lab [Op
 
 Grazie ancora a tutti ed a presto!
 
-![](../img/maptime_mi_first.jpg)
+![foto_primo_maptimeMI](img/maptime_mi_first.jpg)
 
