@@ -7,7 +7,7 @@ Gran debutto per MaptimeMI nelle aule del Politecnico di Milano. I 30 partecipan
 
 Le slides delle presentazioni si trovano sulla repo github di maptimeMI e sono raggiungibili tramite i seguenti links:  
 
-- [Into to Maptime Milano](http://maptime.io/milan/resources/intro-maptime-milan-ITA/index.html#0)  
+- [Intro to Maptime Milano](http://maptime.io/milan/resources/intro-maptime-milan-ITA/index.html#0)  
 - [Web-Maps 101](http://maptime.io/milan/resources/web-maps-101/index.html#0)
 
 Cogliamo l'occasione per ringraziare nuovamente tutti i presenti che hanno partecipato con interesse, facendo domande e chiedendo spiegazioni.  
