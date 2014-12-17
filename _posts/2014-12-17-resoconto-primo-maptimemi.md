@@ -12,7 +12,7 @@ Le slides delle presentazioni si trovano sulla repo github di maptimeMI e sono r
 
 Cogliamo l'occasione per ringraziare nuovamente tutti i presenti che hanno partecipato con interesse, facendo domande e chiedendo spiegazioni.  
 
-L'appuntamento è con il prossimo Maptime! a gennaio, nel bellissimo Fab-Lab [OpenDot](www.opendotlab.it).
+L'appuntamento è con il prossimo Maptime! a gennaio, nel bellissimo Fab-Lab [OpenDot](http://www.opendotlab.it).
 
 Grazie ancora a tutti ed a presto!
 
