@@ -8,4 +8,4 @@ Lo passione e la voglia di fare "hacking" (su vecchi circuiti come su pezzi di c
 Ringraziamo nuovamente Alessandro e tutti i ragazzi del laboratorio per l'entusiasmo e la cortesia con cui ci hanno accolto.  
 A presto con nuove mappe! 
 
-![logo-open-dot](resources/intro-maptime-milan-ITA/logo-open-dot-small.png)
+![logo-open-dot](img/logo-open-dot-small.png)
