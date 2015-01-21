@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>#webmaptime</title>
+	<link target="_blank" href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	<style>
+
+		/*
+			SLIDE STYLES:
+			All slides are assumed to contain one 'p' element, one 'img' element, or one of each.
+
+			<div class="slide">
+				-- Default style. If no image, text is centered. If image present, it is centered and text is at the top.
+				-- Arbitrary content could go here too (e.g. I used a couple of iframes), but default behavior will mess with any p or img elements.
+
+			<div class="slide image_full">
+				-- Full 1024x768 img, somewhat faded to black and with bold white text (p) centered on top.
+
+			<div class="slide image_bottom">
+				-- Mostly like default except that image appears at the bottom. (Basically just to give more room for longer text).
+
+			Can make additional class styles for p elements and such if you need different text sizes, colors, etc.
+			(e.g. there is a p.title style with a bigger font)
+
+			img elements themselves are not displayed; rather, their src attributes are applied as div backgrounds. This is to make centering easier, basically.
+		*/
+
+		html, body{
+			margin: 0;
+			font: 20px/24px "PT Sans", sans-serif;
+			background-color: #EAB815;
+		}
+		.slide, .slide div{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1024px;
+			height: 768px;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+		.slide{
+			background-color: #EAB815;
+
+		}
+		.slide.image_bottom{
+			background-position: center bottom;
+		}
+		.slide p{
+			position: absolute;
+			font-size: 64px;
+			line-height: 72px;
+			font-weight: bold;
+			text-align: center;
+			margin: 15px 1% 0 1%;
+			width: 98%;
+		}
+		.slide ul{
+			top: 50px;
+			left: 300px;
+			position: absolute;
+			font-size: 64px;
+			line-height: 72px;
+			font-weight: bold;
+			text-align: left;
+			margin: 0;
+		}
+		.slide img{
+			display: none;
+		}
+		.slide.image_full{
+			background-color: black;
+		}
+
+		.slide.image_full div{
+			opacity: .5;
+		}
+		.slide.image_full p{
+			color: white;
+			text-shadow:0px 0px 10px #000000;
+		}
+		.slide.image_full.repeat div{
+			background-position: 0 0;
+			background-repeat: repeat;
+		}
+		.slide p.title{
+			font-size: 120px;
+		}
+
+		a{
+			color: #669;
+			text-decoration: none;
+		}
+
+		a:hover{
+			text-decoration: underline;
+		}
+
+		a.citation{
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+			color: #000;
+			background-color: rgba(255,255,255,.75);
+		}
+
+		.code{
+			font-family: 'Courier New';
+		}
+	</style>
+</head>
+<body>
+
+<div class="slide">
+	<p class="title">#webmaptime</p>
+	<a class="citation" target="_blank" href="http://github.com/maptimeboston">Slide Credits: Mike Foster and Andy Woodruff | Maptime Boston</a>
+</div>
+
+<div class="slide image_full">
+	<img src="images/anatomy.jpg"/>
+	<p>FIRST: Thanks to Alan McConchie, Beth Schechter, and the Maptime team for much of this material!</p>
+	<a class="citation" target="_blank" href="https://github.com/maptime/anatomy-of-a-web-map">Anatomy of a Web Map</a>
+</div>
+
+<div class="slide">
+	<p>Follow along! <a target="_blank" href="http://maptime.io/milan/resources/web-maps-101/index.html#0" style="font-size:36px"><br/>http://maptime.io/milan/resources/web-maps-101/index.html</a></p>
+</div>
+
+<div class="slide image_full">
+	<img src="images/web.jpg"/>
+	<p>What is a web map?</p>
+</div>
+
+<div class="slide">
+	<p>"Web map" often implies a map that is not simply <em>on</em> the web, but rather one that is <em>powered by</em> the web.</p>
+</div>
+
+<div class="slide">
+	<p>A <em>digital map</em> is on a computer, but may not be accessible by internet, and is relatively static if it is.</p>
+</div>
+
+<div class="slide">
+	<img src="images/bus_digital.jpg"/>
+	<a class="citation" target="_blank" href="http://bostonography.com/2013/live-mbta-bus-speeds/">bostonography</a>
+</div>
+
+<div class="slide">
+	<p>A <em>web map</em> depends on the internet. It is usually interactive and not always self-contained.</p>
+</div>
+
+<div class="slide">
+	<iframe width="100%" height="95%" frameborder="0" src="http://bostonography.com/bus"></iframe>
+	<a class="citation" target="_blank" href="http://bostonography.com/bus">bostonography</a>
+</div>
+
+<div class="slide">
+	<img src="images/geocoding_mapquest.gif"/>
+	<p>MapQuest ruled the early days of web maps</p>
+</div>
+
+<div class="slide">
+	<img src="images/gmaps_xmas.jpg"/>
+	<p>Enter Google, 2005</p>
+</div>
+
+<div class="slide image_bottom">
+	<p>Google Maps pioneered what is now sometimes called a "slippy map"</p>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94411.73947848764!2d-71.05715705!3d42.31337345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3652d0d3d311b%3A0x787cbf240162e8a0!2sBoston%2C+MA!5e0!3m2!1sen!2sus!4v1403529313730" width="1024" height="500" frameborder="0" style="border:0; position: absolute; bottom: 0"></iframe>
+</div>
+
+<div class="slide image_full repeat">
+	<img src="images/banana.gif"/>
+	<p>So how does a "slippy map" work?</p>
+</div>
+
+<div class="slide image_full">
+	<img src="images/mapquest_tiles2.png"/>
+	<p>A "slippy map" is usually made of tiles.</p>
+</div>
+
+<div class="slide image_full">
+	<img src="images/tile_loading.gif"/>
+	<p>Tiling chops the map into pieces to quickly load only the part of the map in view.</p>
+	<a class="citation" target="_blank" href="http://maps.stamen.com/">maps.stamen.com</a>
+</div>
+
+<div class="slide image_bottom">
+	<img src="images/tile_pixels.png"/>
+	<p>Tiles are usually pre-rendered raster images, although vector tiles are on the rise.</p>
+</div>
+
+<div class="slide image_full">
+	<img src="images/various_tiles.jpg"/>
+	<p>All (most) tiles are created equal.</p>
+	<a class="citation" target="_blank" href="http://www.openwhatevermap.org/">openwhatevermap.org</a>
+</div>
+
+<div class="slide">
+	<img src="images/tiles.gif"/>
+	<p>256 x 256 pixels.<br/>
+		Standardized locations.<br/>
+		20ish zoom levels.</p>
+</div>
+
+<div class="slide">
+	<p>Map tiles are just images on the web, so you can link to them individually.</p>
+</div>
+
+<div class="slide">
+	<p>For example: <br/><br/>
+	<!-- <p><a href="http://tile.openstreetmap.org/4/2/6.png">http://tile.openstreetmap.org/4/2/6.png</a></p> -->
+	http://tile.openstreetmap.org/4/2/6.png
+	</p>
+</div>
+
+<div class="slide">
+	<p>In order to understand how this works, let's break down the URL.</p>
+</div>
+
+<div class="slide">
+	<p>this is the name of the tile server <br /> <br /> 
+	http://<em>tile.openstreetmap.org</em>/4/2/6.png</p>
+</div>
+
+
+
+<div class="slide">
+	<p>zoom, x, y<br/><br/>
+	http://tile.openstreetmap.org<em>/4/2/6</em>.png
+		<!-- e.g. .../4/2/6.png -->
+		</p>
+</div>
+
+
+<div class="slide">
+	<img src="images/zoom2.jpg"/>
+</div>
+
+<div class="slide">
+	<img src="images/zoom3.jpg"/>
+</div>
+
+<div class="slide">
+	<p>Number of tiles at zoom level <em>z</em>:<br/>
+		2<sup>z</sup> x 2<sup>z</sup> = 4<sup>z</sup></p>
+</div>
+
+<div class="slide">
+	<p>At the resolution of my computer, a world map at zoom 21 would be nearly 78 miles square!</p>
+	<a class="citation" target="_blank" href="http://msdn.microsoft.com/en-us/library/bb259689.aspx">Bing Maps Tile System</a>
+</div>
+
+<!-- <div class="slide">
+	<iframe width="100%" height="95%" frameborder="0" src="tiles.html"></iframe>
+</div> -->
+
+<div class="slide image_full">
+	<img src="images/mercator1569.jpg"/>
+	<p>Tiled web maps use the Mercator projection.</p>
+	<a class="citation" target="_blank" href="http://en.wikipedia.org/wiki/Mercator_projection#mediaviewer/File:Mercator_1569.png">Wikipedia</a>
+</div>
+
+<div class="slide">
+	<p>The math is simple!*<br/><br/>
+		x = λ<br/>
+                y = ln(tan φ + sec φ)<br/>
+		where λ is longitude, φ is latitude
+	</p>
+	<a class="citation" href="http://www.hydrometronics.com/downloads/Web%20Mercator%20-%20Non-Conformal,%20Non-Mercator%20(notes).pdf" target="_blank">*kind of. 'Web Mercator' is more complicated, but you can still do many things with the basic formula.</a>
+</div>
+
+<div class="slide image_bottom">
+	<img src="images/mercator_rhumb.jpg"/>
+	<p>Mercator's map was designed for marine navigation. Lines of constant bearing are straight.</p>
+</div>
+
+<div class="slide image_bottom">
+	<img src="images/directions.jpg"/>
+	<p>At a local scale, this means that shape and direction are preserved.</p>
+</div>
+
+<div class="slide">
+	<img src="images/squish.jpg"/>
+	<p>And that's generally a good thing.</p>
+	<a class="citation" target="_blank" href="http://idvux.wordpress.com/2007/06/06/mercator-vs-well-not-mercator-platte-carre/">John Nelson, Plate carrée squish effect</a>
+</div>
+
+<div class="slide image_full">
+	<img src="images/world.jpg"/>
+	<p>A Mercator map of the world is not a map of the world.</p>
+</div>
+
+<div class="slide">
+	<p>ln(tan 90&#176; + sec 90&#176;) = Infinity</p>
+</div>
+
+<div class="slide">
+	<img src="images/poles.gif"/>
+</div>
+
+<div class="slide">
+	<img src="images/world_cutoff.jpg"/>
+</div>
+
+<div class="slide">
+	<img src="images/plate-carre.jpeg"/>
+	<a class="citation" target="_blank" href="http://idvux.wordpress.com/2007/06/06/mercator-vs-well-not-mercator-platte-carre/">John Nelson, Plate carrée squish effect</a>
+</div>
+
+<div class="slide">
+	<img src="images/southpole.jpg"/>
+</div>
+
+<div class="slide image_full">
+	<img src="images/suspicious.jpg"/>
+	<p>Be suspicious of web map comparisons "at the same scale."</p>
+</div>
+
+<div class="slide">
+	<iframe width="100%" height="95%" frameborder="0" src="https://gmaps-samples.googlecode.com/svn/trunk/poly/puzzledrag.html"></iframe>
+</div>
+
+<div class="slide">
+	<p>ZOOM LEVEL &#8800; SCALE</p>
+</div>
+
+<div class="slide">
+	<img src="images/quito.jpg"/>
+</div>
+
+<div class="slide">
+	<img src="images/oslo.jpg"/>
+</div>
+
+<div class="slide">
+	<img src="images/z16.jpg"/>
+</div>
+
+<div class="slide">
+	<img src="images/aerei.jpeg"/>
+	<p>Projection Trade-Off</p>
+	<a class="citation" target="_blank" href="http://idvux.wordpress.com/2007/06/06/mercator-vs-well-not-mercator-platte-carre/">John Nelson, Plate carrée squish effect</a>
+</div>
+
+<div class="slide">
+	<img src="images/mercator_choro.jpg"/>
+	<p>So avoid areal representations in web maps at small scale.</p>
+</div>
+
+<div class="slide image_full">
+	<p>Web maps are more than just tiles.</p>
+	<img src="images/pins.jpg"/>
+</div>
+
+<div class="slide">
+	<p>Dynamic, interactive <em>Feature Layers</em> are the important other half of many web maps.</p>
+</div>
+
+<div class="slide">
+	<img src="images/osm_tile.png"/>
+	<p>Base Layers: <br /> tiles, (typically raster), non-interactive<a href="https://www.mapbox.com/blog/how-interactivity-works-utfgrid/" target="_blank">*</a>, used as "background" </p>
+</div>
+
+<div class="slide">
+	<p>Feature layers: <br /> vector, typically interactive, represent the map's salient data</p>
+	<iframe src="http://leafletjs.com/examples/quick-start-example.html" scrolling="no" frameborder="0" width="600" height="400" style="position:absolute;bottom:100px;left:212px"></iframe>
+</div>
+
+<!-- <div class="slide">
+	<p><a href="http://en.wikipedia.org/wiki/GeoJSON" target="_blank">GeoJSON</a> is a geographic data format that plays well with web maps for feature layers</p>
+	<img src="images/geojson.png"/>
+</div> -->
+
+<div class="slide image_full">
+	<p>How does all this fit together?</p>
+	<img src="images/puzzle.jpg"/>
+</div>
+
+<div class="slide">
+	<img src="images/diagram.jpg"/>
+</div>
+
+<div class="slide">
+	<p>Thats not all folks!<br/>Welcome to the world of Web Maps!
+	</p>
+</div>
+
+<script>
+	// The following is mostly derived from https://github.com/tmcw/big
+
+	var slides = document.getElementsByClassName("slide"),
+		current = 0;
+
+	function go(n){
+		current = n;
+		var slide = slides[n],
+			classes = slide.className.split(" ");
+		for (var i = 0; i < slides.length; i++) slides[i].style.display = 'none';
+		slide.style.display = 'block';
+
+	slide.style.left = (window.innerWidth - slide.offsetWidth) / 2 + "px";
+	slide.style.top = (window.innerHeight - slide.offsetHeight) / 2 + "px";
+
+		if ( classes[1] && styleSlide[classes[1]] ) styleSlide[classes[1]](slide);
+		else styleSlide.normal(slide);
+		resize();
+
+		if (window.location.hash !== n) window.location.hash = n;
+	}
+
+	var styleSlide = {
+		heading: function(slide){
+			var p = slide.getElementsByTagName("p")[0];
+			p.style.marginTop = (slide.offsetHeight - p.offsetHeight) / 2 + "px";
+		},
+
+		image_full: function(slide){
+			var img = slide.getElementsByTagName("img")[0];
+			var p = slide.getElementsByTagName("p")[0];
+			var div = slide.getElementsByTagName("div")[0] || document.createElement("div");
+			div.style.backgroundImage = 'url(' + img.src + ')';
+			slide.insertBefore(div,p);
+	        img.style.display = 'none';
+			p.style.marginTop = (slide.offsetHeight - p.offsetHeight) / 2 + "px";
+		},
+
+		image_bottom: function(slide){
+			var img = slide.getElementsByTagName("img")[0];
+			if ( !img ) return;
+	        slide.style.backgroundImage = 'url(' + img.src + ')';
+	        img.style.display = 'none';
+		},
+
+		normal: function(slide){
+			var img = slide.getElementsByTagName("img")[0];
+			var p = slide.getElementsByTagName("p")[0];
+
+			if ( img ){
+				slide.style.backgroundImage = 'url(' + img.src + ')';
+			} else if (!img && !slide.getElementsByTagName("iframe")[0]){
+				if ( p ){
+					p.style.marginTop = (slide.offsetHeight - p.offsetHeight) / 2 + "px";
+				}
+			}
+		}
+	}
+
+	document.onclick = function() { go(++current % (slides.length)); };
+    function fwd() { go(Math.min(slides.length - 1, ++current)); }
+    function rev() { go(Math.max(0, --current)); }
+    document.onkeydown = function(e) {
+        if (e.which === 39 || e.which === 34 || e.which === 40) fwd();
+        if (e.which === 37 || e.which === 33 || e.which === 38) rev();
+    };
+    document.ontouchstart = function(e) {
+        var x0 = e.changedTouches[0].pageX;
+        document.ontouchend = function(e) {
+            var x1 = e.changedTouches[0].pageX;
+            if (x1 - x0 < 0) fwd();
+            if (x1 - x0 > 0) rev();
+        };
+    };
+
+    function parse_hash() {
+        return Math.max(Math.min(slides.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) current = parse_hash() || current;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== current) go(c);
+    };
+    window.onresize = resize;
+
+    function resize(){
+    	var s = Math.min( 1, Math.min( window.innerHeight / 768, window.innerWidth / 1024 ) );
+    		slides[current].style.webkitTransform = "scale(" + s + "," + s +")";
+			slides[current].style.MozTransform = "scale(" + s + "," + s +")";
+			slides[current].style.msTransform = "scale(" + s + "," + s +")";
+			slides[current].style.transform = "scale(" + s + "," + s +")";
+    }
+    go(current);
+</script>
+
+</body>
+</html>
