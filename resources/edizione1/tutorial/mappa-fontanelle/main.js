@@ -83,8 +83,6 @@ var fontanella = L.icon ({
 	Layers Control
 -----------------*/
 
-// Old School
-// ------------
 // Creo due oggetti con i riferimenti rispettivamente ai BaseLayers ed ai FeatureLayers
 var baseMaps={"Sfondo OSM": baseLayer};
 var featureLayers={
@@ -95,5 +93,3 @@ var featureLayers={
 L.control.layers(baseMaps, featureLayers).addTo(map);
 // Per un metodo moolto più succinto (che usa però Mapbox.js) guardare questo link: https://www.mapbox.com/mapbox.js/example/v1.0.0/toggle-baslayers/
 
-// Bottoni moderni
-// ---------------
