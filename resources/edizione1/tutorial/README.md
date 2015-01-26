@@ -50,6 +50,7 @@ Ora, con due righe di javascript chiediamo a Leaflet di creare una mappa dentro 
 
 Se tutto è andato bene, questo è quello che dovreste vedere:
 ![Resize icon](img-tutorial/img-tutorial1.png)
+[qweqwe](/img-tutorial/img-tutorial1.png)
 
 Non è molto, ma è pur sempre un inzio. Fatevi i complimenti per la vostra prima mappetta web.
 
