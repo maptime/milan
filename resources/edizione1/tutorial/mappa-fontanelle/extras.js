@@ -39,4 +39,4 @@
 
 
 
-// --------------- ULTERIORI STILI PER BASE LAYER ---------------
+// --------------- Marker Clusterer ---------------
