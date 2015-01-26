@@ -1,92 +1,99 @@
-/*
-OSM
-*/
-var	osm = {
-	name: 'OpenStreetMap',
-	type: 'xyz',
-	url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-	layerOptions: {
-		subdomains: ['a', 'b', 'c'],
-		attribution: '© OpenStreetMap contributors',
-		continuousWorld: true
+/* -----------
+	 Mappa
+------------*/
+	 var map = L.map('map').setView([45.4588, 9.2010], 15);
+
+/*----------------
+	Base Layers
+-----------------*/
+
+// OpenStreetMap
+// ------------- 
+var baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	maxZoom: 18
+}).addTo(map);
+
+// Mapbox
+//---------- 
+// var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-i86nkdio/{z}/{x}/{y}.png', {
+//         attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+//     }).addTo(map); 
+
+/*------------------
+	Features Layers
+--------------------*/
+
+// Marker
+// -------
+// Oggetto marker
+var openDotMarker = L.marker([45.448198, 9.222020])
+    .bindPopup('<b>Opendot</b> <br> Weeeee!')
+    .openPopup()
+    .addTo(map);
+// Icona Marker
+var openDotIcon = L.icon({
+    iconUrl: 'img/opendot-marker.png',
+    shadowUrl: 'img/opendot-marker-shadow.png',
+    iconSize:     [80, 80], // size of the icon
+    shadowSize:   [80, 80], // size of the shadow
+    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+    shadowAnchor: [0, 0],  // the same for the shadow
+    popupAnchor:  [60, 15] // point from which the popup should open relative to the iconAnchor
+});
+// Commentare il marker sopra e crearne uno nuovo qui sotto, passandogli tra le proprietà la nuova icona
+// var openDotMarker = L.marker([45.448198, 9.222020],
+// 	{ icon: openDotIcon}) // NOTA: questa opzione non era presente prima
+//     .bindPopup('<b>Opendot</b> <br> Weeeee!')
+//     .openPopup()
+//     .addTo(map); 
+
+// GeoJSON
+// --------- 
+// Dati
+var fontane = L.geoJson(fontanelle, {
+	pointToLayer : function  (feature, latlng) {
+		lat = feature.geometry.coordinates[0];
+		lng = feature.geometry.coordinates[1];
+		return L.marker([lng,lat]).bindPopup("Andiamo a bere al Bar del Drago Verde!");
 	}
-};
-var map = L.map('map').setView([45.4588, 9.2010], 14);
-var baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-				{
-					attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-					maxZoom: 18
-				}
-				).addTo(map);
-
-/*
-MAPBOX
-*/
-// Sostituire MapID con il proprio ID mapbox
-// var map = L.map('map').setView([45.4588, 9.2010], 9);
-// L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
-// 
-// mapbox
-// L.mapbox.accessToken = 'pk.eyJ1IjoiY2FydG9taWtlIiwiYSI6IjZfYkZqajAifQ.d6uTFMLHEgrjpFmD_e9kRQ';
-// var map = L.mapbox.map('map', 'examples.map-i86nkdio')
-//     	.setView([45.4588, 9.2010], 9);
-
-/*
-custom tiles
-*/
-// L.tileLayer('tiles/{z}/{x}/{y}.png', {
-// 	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>',    
-//     maxZoom: 18
-// }).addTo(map);
-
-/*
-Stamen
-*/
-// In alternativa usare le mappe di Stamen (a fondo pagina le istruzioni)
-// http://maps.stamen.com/#terrain/12/37.7706/-122.3782
-// // replace "toner" here with "terrain" or "watercolor"
-// var layer = new L.StamenTileLayer("toner");
-// var map = new L.Map("element_id", {
-//     center: new L.LatLng(45.4588, 9.2010),
-//     zoom: 12
-// });
-// map.addLayer(layer);
-
-
-// Icon
+}).addTo(map);
+// Icona GeoJSON
 var fontanella = L.icon ({
-	iconUrl: 'img/fontanella.png',
-	shadowUrl: 'img/fontanella_ombra.png',
+	iconUrl: 'img/vedovella.png',
+	shadowUrl: 'img/vedovella-shadow.png',
     iconSize:     [80, 93], // size of the icon
     shadowSize:   [80, 93], // size of the shadow
     iconAnchor:   [0, 0 ], // point of the icon which will correspond to marker's location
     shadowAnchor: [0, 0],  // the same for the shadow
     popupAnchor:  [45, 10] // point from which the popup should open relative to the iconAnchor
 });
-console.log(fontanella);
+// Come sopra per il marker, commentate il vecchio codice e ricaricate il GeoJSON con le giuste icone
+// var fontane = L.geoJson(fontanelle, {
+// 	pointToLayer : function  (feature, latlng) {
+// 		lat = feature.geometry.coordinates[0];
+// 		lng = feature.geometry.coordinates[1];
+// 		return L.marker([lng,lat],
+// 		 {icon: fontanella}) // NOTA: questa opzione non era presente prima
+// 		 .bindPopup("Andiamo a bere al Bar del Drago Verde!");
+// 	}
+// }).addTo(map);
 
-// var fontanelle_geojson = $.getJSON($('link[rel="points"]').attr("href"), function(data) {
-//   var geojson = L.geoJson(data, {
-//     onEachFeature: function (feature, layer) {
-//       layer.bindPopup(feature.properties.name);
-//     }
-//   });
-// var points = L.geoJson(labels, {
-//         pointToLayer: function (feature, latlng) {
-//             return L.marker(latlng, {icon: crossIcon });
-//         }
-// });
+/*-----------------
+	Layers Control
+-----------------*/
 
-var fontane = L.geoJson(fontanelle, {
-	pointToLayer : function  (feature, latlng) {
-		lat = feature.geometry.coordinates[0];
-		lng = feature.geometry.coordinates[1];
-		return L.marker([lng,lat], {icon: fontanella}).bindPopup("Evviva l'acqua pubblica!");
-	}
-	
-    
-   
-}).addTo(map);
+// Old School
+// ------------
+// Creo due oggetti con i riferimenti rispettivamente ai BaseLayers ed ai FeatureLayers
+var baseMaps={"Sfondo OSM": baseLayer};
+var featureLayers={
+	"Vedovelle": fontane,
+	"Logo Opendot" : openDotMarker
+};
+// Creo i controlli
+L.control.layers(baseMaps, featureLayers).addTo(map);
+// Per un metodo moolto più succinto (che usa però Mapbox.js) guardare questo link: https://www.mapbox.com/mapbox.js/example/v1.0.0/toggle-baslayers/
 
-
-
+// Bottoni moderni
+// ---------------
