@@ -1018,7 +1018,7 @@ body .markdown-body
 <p>Questa cartella contiene i file ed i dati necessari per il tutorial su Leaflet.<br />
 Scaricala come .zip dal bottone di lato a dx, o tramite <code>git clone</code><br />
 La pagina qui di seguito è scarsamente commentata di proposito, in quanto pensata come accompagnamento ad una spiegazione orale del tutorial.</p>
-<h1 id="step-0-prepariamo-la-pagina"><a name="user-content-step-0-prepariamo-la-pagina" href="#step-0-prepariamo-la-pagina" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 0 - Prepariamo la pagina</h1>
+<h1 id="step-1-prepariamo-la-pagina"><a name="user-content-step-1-prepariamo-la-pagina" href="#step-1-prepariamo-la-pagina" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 1 - Prepariamo la pagina</h1>
 <p>Apriamo il file index.html.<br />
 Per prima cosa andiamo a caricare la libreria Leaflet (con estensione .js), insieme con il relativo foglio di stile (.css).<br />
 Per fare questo, in fondo al file, ma prima della chiusura del <code>body</code> (cioè prima del tag <code>&lt;/body&gt;</code>) aggiungiamo i link agli scripts necessari:</p>
@@ -1032,24 +1032,31 @@ Per fare questo, in fondo al file, ma prima della chiusura del <code>body</code>
 <p>Se vi siete persi, nessuna paura!<br />
 Qui di seguito (ed in fondo ad ogni successivo paragrafo), potete trovare un file con il codice relativo scritto fino a questo punto.<br />
 <a href="/Volumes/old_hdd/Utenti/mic/Sites/milan/resources/edizione1/tutorial/mappa-fontanelle/files-step-by-step/index1.html"><strong> File step1</strong></a></p>
-<h1 id="step-1-la-nostra-prima-web-map"><a name="user-content-step-1-la-nostra-prima-web-map" href="#step-1-la-nostra-prima-web-map" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 1 - La nostra prima web-map</h1>
+<h1 id="step-2-la-nostra-prima-web-map"><a name="user-content-step-2-la-nostra-prima-web-map" href="#step-2-la-nostra-prima-web-map" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 2 - La nostra prima web-map</h1>
 <p>Per prima cosa andiamo a definire il <code>div</code> che conterrà la nostra mappa, all&rsquo;interno del <code>&lt;body&gt;&lt;/body&gt;</code>.<br />
 Cosi:</p>
 <pre><code>&lt;div id=&rsquo;map&rsquo;&gt;&lt;/div&gt;</code></pre>
-<p>Ora, con due righe di javascript chiediamo a Leaflet di creare una mappa dentro a questo div. Per fare questo useremo un tag simile a quello usato in precedenza per definire lo stile, ma pensato per contenre del codice javascript invece che del CSS:</p>
-<pre><code>//creo una mappa con relativa posizione e zoom iniziali
- var map = L.map(&lsquo;map&rsquo;).setView([45.4588, 9.2010], 15);
+<p>Ora, con due righe di javascript chiediamo a Leaflet di creare una mappa dentro a questo div. Per fare questo useremo un tag simile a quello usato in precedenza per definire lo stile, ma pensato per contenre del codice javascript invece che del CSS. Inserite questa parte in fondo al file, dopo lo il link a Leaflet, e sempre prima della chiusura del tag <code>body</code>.</p>
+<pre><code>&lt;script &gt;
 
-//aggiungo un layer di sfondo, o Base Layer
-var baseLayer = L.tileLayer(&lsquo;http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&rsquo;,{
-        attribution: &lsquo;Map data &amp;copy; &lt;a href=&rdquo;http://openstreetmap.org&rdquo;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&rdquo;http://creativecommons.org/licenses/by-sa/2.0/&rdquo;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&rdquo;http://  mapbox.com&rdquo;&gt;Mapbox&lt;/a&gt;&rsquo;,
-        maxZoom: 18
-    }).addTo(map);</code></pre>
+    //creo una mappa con relativa posizione e zoom iniziali
+     var map = L.map(&lsquo;map&rsquo;).setView([45.4588, 9.2010], 15);
+
+    //aggiungo un layer di sfondo, o Base Layer
+    var baseLayer = L.tileLayer(&lsquo;http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&rsquo;,{
+            attribution: &lsquo;Map data &amp;copy; &lt;a href=&rdquo;http://openstreetmap.org&rdquo;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&rdquo;http://creativecommons.org/licenses/by-sa/2.0/&rdquo;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&rdquo;http://  mapbox.com&rdquo;&gt;Mapbox&lt;/a&gt;&rsquo;,
+            maxZoom: 18
+        }).addTo(map);
+
+&lt;/script&gt;</code></pre>
+<p>Se tutto è andato bene, questo è quello che dovreste vedere:<br />
+<img alt="Resize icon" src="img-tutorial/img-tutorial1.png" /></p>
+<p>Non è molto, ma è pur sempre un inzio. Fatevi i complimenti per la vostra prima mappetta web.</p>
 <p><a href="/Volumes/old_hdd/Utenti/mic/Sites/milan/resources/edizione1/tutorial/mappa-fontanelle/files-step-by-step/index2.html"><strong> File step2</strong></a>    </p>
-<h1 id="step-2-creare-un-marker"><a name="user-content-step-2-creare-un-marker" href="#step-2-creare-un-marker" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 2 - Creare un marker</h1>
+<h1 id="step-3-creare-un-marker"><a name="user-content-step-3-creare-un-marker" href="#step-3-creare-un-marker" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 3 - Creare un marker</h1>
 <p>Ora</p>
-<h1 id="step-3-geojson-ftw"><a name="user-content-step-3-geojson-ftw" href="#step-3-geojson-ftw" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 3 - GeoJSON FTW!</h1>
-<h1 id="step-4-layers-control"><a name="user-content-step-4-layers-control" href="#step-4-layers-control" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 4 - Layers Control</h1>
-<h1 id="step-5-plugins-marker-clusterer"><a name="user-content-step-5-plugins-marker-clusterer" href="#step-5-plugins-marker-clusterer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 5 - Plugins: Marker CLusterer</h1>
+<h1 id="step-4-geojson-ftw"><a name="user-content-step-4-geojson-ftw" href="#step-4-geojson-ftw" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 4 - GeoJSON FTW!</h1>
+<h1 id="step-5-layers-control"><a name="user-content-step-5-layers-control" href="#step-5-layers-control" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 5 - Layers Control</h1>
+<h1 id="step-6-plugins-marker-clusterer"><a name="user-content-step-6-plugins-marker-clusterer" href="#step-6-plugins-marker-clusterer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 6 - Plugins: Marker CLusterer</h1>
 <h1 id="step-1"><a name="user-content-step-1" href="#step-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 1</h1>
 <h1 id="step-1_1"><a name="user-content-step-1_1" href="#step-1_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 1</h1></article></body></html>
