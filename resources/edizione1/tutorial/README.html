@@ -1050,12 +1050,50 @@ Cosi:</p>
 
 &lt;/script&gt;</code></pre>
 <p>Se tutto è andato bene, questo è quello che dovreste vedere:<br />
-<img alt="Resize icon" src="img-tutorial/img-tutorial1.png" /></p>
-<p>Non è molto, ma è pur sempre un inzio. Fatevi i complimenti per la vostra prima mappetta web.</p>
+<img alt="imm2" src="/Volumes/old_hdd/Utenti/mic/Sites/milan/resources/edizione1/tutorial/img-tutorial/img-tutorial2.png" /></p>
+<p>Non è molto, ma è pur sempre un inzio..congratulatevi con voi stessi per aver creato la vostra prima mappetta web.</p>
 <p><a href="/Volumes/old_hdd/Utenti/mic/Sites/milan/resources/edizione1/tutorial/mappa-fontanelle/files-step-by-step/index2.html"><strong> File step2</strong></a>    </p>
 <h1 id="step-3-creare-un-marker"><a name="user-content-step-3-creare-un-marker" href="#step-3-creare-un-marker" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 3 - Creare un marker</h1>
-<p>Ora</p>
-<h1 id="step-4-geojson-ftw"><a name="user-content-step-4-geojson-ftw" href="#step-4-geojson-ftw" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 4 - GeoJSON FTW!</h1>
+<p>E&rsquo; ora di mettere qualche puntina su questa cartina. <br />
+Per aggiungere un marker, Leaflet offre un metodo molto intuitivo tramite il costruttore <code>L.marker([lat, lng])</code>.<br />
+Questi necessita obbligatoriamente di un array di coordinate <code>[Latitudine, Longitudine]</code>, oltre a disporre di alcuni metodi opzionali, come <code>.bindPopup()</code> per visualizzare un baloon sopra il marker.<br />
+Aggiungiamo quindi il seguente codice, di seguito a quello scritto in precedenza:</p>
+<pre><code>// Oggetto marker
+var openDotMarker = L.marker([45.448198, 9.222020])
+    .bindPopup(&lsquo;&lt;b&gt;Opendot&lt;/b&gt; &lt;br&gt; Weeeee!&rsquo;)
+    .openPopup()
+    .addTo(map);</code></pre>
+<p>Risultato:<br />
+<img alt="imm3" src="/Volumes/old_hdd/Utenti/mic/Sites/milan/resources/edizione1/tutorial/img-tutorial/img-tutorial3.png" /></p>
+<p><a href="/Volumes/old_hdd/Utenti/mic/Sites/milan/resources/edizione1/tutorial/mappa-fontanelle/files-step-by-step/index3.html"><strong> File step3</strong></a>    </p>
+<h1 id="step-4-modificare-un-icona"><a name="user-content-step-4-modificare-un-icona" href="#step-4-modificare-un-icona" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 4 - Modificare un icona</h1>
+<p>Per personalizzare il marker è possibile modificare l&rsquo;icona di default con una creata a piacere.<br />
+Come prima cosa creiamo quindi una variabile &lsquo;icona&rsquo; a cui associamo un oggetto costruito tramito il metodo <code>L.icon()</code>. <br />
+Notate che due proprietà di quest&rsquo;oggetto, ovvero i campi <code>iconUrl</code> e <code>shadowUrl</code> sono proprio gli URL delle icone che voglio linkare, relativi rispettivamente all&rsquo;immagine ed all&rsquo;immagine della sua ombra, per creare una specie di effetto prospettico.<br />
+Le altre proprietà gestiscono le dimensioni delle icone.</p>
+<pre><code>    // Icona Marker
+    var openDotIcon = L.icon({
+        iconUrl: &lsquo;img/opendot-marker.png&rsquo;,
+        shadowUrl: &lsquo;img/opendot-marker-shadow.png&rsquo;,
+        iconSize:     [80, 80], // size of the icon
+        shadowSize:   [80, 80], // size of the shadow
+        iconAnchor:   [0, 0], // point of the icon which will correspond to marker&rsquo;s location
+        shadowAnchor: [0, 0],  // the same for the shadow
+        popupAnchor:  [60, 15] // point from which the popup should open relative to the iconAnchor
+    });</code></pre>
+<p>Una volta costruito l&rsquo;oggetto &lsquo;icona&rsquo;, possiamo ricreare il marker, ma questa volta passandoglio come parametro opzionale proprio la nostra icona customizzata. </p>
+<pre><code>    var openDotMarker = L.marker([45.448198, 9.222020],
+        { icon: openDotIcon}) // NOTA: questa opzione non era presente nello step3
+        .bindPopup(&lsquo;&lt;b&gt;Opendot&lt;/b&gt; &lt;br&gt; Weeeee!&rsquo;)
+        .openPopup()
+        .addTo(map);</code></pre>
+<p>Risultato:<br />
+<img alt="imm4" src="img-tutorial/img-tutorial4.png" /></p>
+<p><a href="/Volumes/old_hdd/Utenti/mic/Sites/milan/resources/edizione1/tutorial/mappa-fontanelle/files-step-by-step/index4.html"><strong> File step4</strong></a></p>
+<h1 id="step-5-geojson-ftw"><a name="user-content-step-5-geojson-ftw" href="#step-5-geojson-ftw" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 5 - GeoJSON FTW!</h1>
+<p>Risultato:<br />
+<img alt="imm5" src="img-tutorial/img-tutorial4.png" /></p>
+<p><a href="/Volumes/old_hdd/Utenti/mic/Sites/milan/resources/edizione1/tutorial/mappa-fontanelle/files-step-by-step/index5.html"><strong> File step5</strong></a>    </p>
 <h1 id="step-5-layers-control"><a name="user-content-step-5-layers-control" href="#step-5-layers-control" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 5 - Layers Control</h1>
 <h1 id="step-6-plugins-marker-clusterer"><a name="user-content-step-6-plugins-marker-clusterer" href="#step-6-plugins-marker-clusterer" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 6 - Plugins: Marker CLusterer</h1>
 <h1 id="step-1"><a name="user-content-step-1" href="#step-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step 1</h1>

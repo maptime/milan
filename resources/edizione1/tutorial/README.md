@@ -49,22 +49,69 @@ Ora, con due righe di javascript chiediamo a Leaflet di creare una mappa dentro 
 	</script>
 
 Se tutto è andato bene, questo è quello che dovreste vedere:
-![Resize icon](img-tutorial/img-tutorial1.png)
-[qweqwe](/img-tutorial/img-tutorial1.png)
+![imm2](img-tutorial/img-tutorial2.png)
 
-Non è molto, ma è pur sempre un inzio. Fatevi i complimenti per la vostra prima mappetta web.
+
+Non è molto, ma è pur sempre un inzio..congratulatevi con voi stessi per aver creato la vostra prima mappetta web.
 
 [** File step2**](./mappa-fontanelle/files-step-by-step/index2.html)	
 
-
-
-
 #Step 3 - Creare un marker
 
-Ora
+E' ora di mettere qualche puntina su questa cartina. 
+Per aggiungere un marker, Leaflet offre un metodo molto intuitivo tramite il costruttore ```L.marker([lat, lng])```.  
+Questi necessita obbligatoriamente di un array di coordinate ```[Latitudine, Longitudine]```, oltre a disporre di alcuni metodi opzionali, come ```.bindPopup()``` per visualizzare un baloon sopra il marker.
+Aggiungiamo quindi il seguente codice, di seguito a quello scritto in precedenza:
+
+	// Oggetto marker
+	var openDotMarker = L.marker([45.448198, 9.222020])
+	    .bindPopup('<b>Opendot</b> <br> Weeeee!')
+	    .openPopup()
+	    .addTo(map);
+
+Risultato:
+![imm3](img-tutorial/img-tutorial3.png)
+
+[** File step3**](./mappa-fontanelle/files-step-by-step/index3.html)	
+
+#Step 4 - Modificare un icona
+
+Per personalizzare il marker è possibile modificare l'icona di default con una creata a piacere.  
+Come prima cosa creiamo quindi una variabile 'icona' a cui associamo un oggetto costruito tramito il metodo ```L.icon()```. 
+Notate che due proprietà di quest'oggetto, ovvero i campi ```iconUrl``` e ```shadowUrl``` sono proprio gli URL delle icone che voglio linkare, relativi rispettivamente all'immagine ed all'immagine della sua ombra, per creare una specie di effetto prospettico.
+Le altre proprietà gestiscono le dimensioni delle icone.
+
+		// Icona Marker
+		var openDotIcon = L.icon({
+		    iconUrl: 'img/opendot-marker.png',
+		    shadowUrl: 'img/opendot-marker-shadow.png',
+		    iconSize:     [80, 80], // size of the icon
+		    shadowSize:   [80, 80], // size of the shadow
+		    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+		    shadowAnchor: [0, 0],  // the same for the shadow
+		    popupAnchor:  [60, 15] // point from which the popup should open relative to the iconAnchor
+		});
+		
+Una volta costruito l'oggetto 'icona', possiamo ricreare il marker, ma questa volta passandoglio come parametro opzionale proprio la nostra icona customizzata. 
+		
+		var openDotMarker = L.marker([45.448198, 9.222020],
+			{ icon: openDotIcon}) // NOTA: questa opzione non era presente nello step3
+		    .bindPopup('<b>Opendot</b> <br> Weeeee!')
+		    .openPopup()
+		    .addTo(map); 
+
+Risultato:
+![imm4](img-tutorial/img-tutorial4.png)
+
+[** File step4**](./mappa-fontanelle/files-step-by-step/index4.html)
+
+#Step 5 - GeoJSON FTW!
 
 
-#Step 4 - GeoJSON FTW!
+Risultato:
+![imm5](img-tutorial/img-tutorial4.png)
+
+[** File step5**](./mappa-fontanelle/files-step-by-step/index5.html)	
 
 #Step 5 - Layers Control
 

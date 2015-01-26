@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>A simple map</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<style type="text/css" media="screen">
+		body { margin:0; padding:0; }
+    	#map { position:absolute; top:0; bottom:0; width:100%; }
+	</style>
+</head>
+<body>
+	
+	<div id='map'> </div>
+
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+    <script >
+
+		//creo una mappa con relativa posizione e zoom iniziali
+		 var map = L.map('map').setView([45.4588, 9.2010], 15);
+
+		//aggiungo un layer di sfondo, o Base Layer
+		var baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://	mapbox.com">Mapbox</a>',
+				maxZoom: 18
+			}).addTo(map);
+
+		// Icona Marker
+		var openDotIcon = L.icon({
+		    iconUrl: 'img/opendot-marker.png',
+		    shadowUrl: 'img/opendot-marker-shadow.png',
+		    iconSize:     [80, 80], // size of the icon
+		    shadowSize:   [80, 80], // size of the shadow
+		    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+		    shadowAnchor: [0, 0],  // the same for the shadow
+		    popupAnchor:  [60, 15] // point from which the popup should open relative to the iconAnchor
+		});
+		
+		var openDotMarker = L.marker([45.448198, 9.222020],
+			{ icon: openDotIcon}) // NOTA: questa opzione non era presente prima
+		    .bindPopup('<b>Opendot</b> <br> Weeeee!')
+		    .openPopup()
+		    .addTo(map); 
+
+	</script>
+</body>
+</html>
