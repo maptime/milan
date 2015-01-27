@@ -15,6 +15,13 @@
 
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <!-- leaflet.markercluster -->
+    <link rel="stylesheet" href="js/leaflet.markercluster/MarkerCluster.css" />
+    <link rel="stylesheet" href="js/leaflet.markercluster/MarkerCluster.Default.css" />
+    <script src="js/leaflet.markercluster/leaflet.markercluster-src.js" ></script>
+    <script src="js/leaflet.markercluster/leaflet.markercluster.js" ></script>
+    
+    
     <!-- Dati -->
 	<script src="data/fontanelle.js"> </script> 
 
@@ -66,9 +73,40 @@
 				 {icon: fontanella}) // NOTA: questa opzione non era presente prima
 				 .bindPopup("Andiamo a bere al Bar del Drago Verde!");
 			}
-		}).addTo(map);
+		}) //nota che ora ho non aggiungo le vedovelle qui, bensì dopo alla riga 109, una volta passate all'oggetto L.MarkerClusterGroup
 
 
+		// Mapbox Streets
+		// ---------------
+		var mapboxTilesStreet = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-i86nkdio/{z}/{x}/{y}.png', {
+		        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+		    })
+		
+		// Mapbox Medieval
+		// ---------------
+		var mapboxTilesMedieval = L.tileLayer('https://{s}.tiles.mapbox.com/v3/spatial.b625e395/{z}/{x}/{y}.png', {
+		        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+		    }); 
+
+		// Creo due oggetti con i riferimenti rispettivamente ai BaseLayers ed ai FeatureLayers
+		var baseMaps={
+			"Sfondo OSM": baseLayer,
+			"Sfondo Mapbox Streets": mapboxTilesStreet,
+			"Sfondo Mapbox Medieval": mapboxTilesMedieval
+		};
+		var featureLayers={
+			"Vedovelle": fontane,
+			"Logo Opendot" : openDotMarker
+		};
+		// Creo i controlli
+		L.control.layers(baseMaps, featureLayers).addTo(map);
+		// Per un metodo moolto più succinto (che usa però Mapbox.js) guardare questo link: https://www.mapbox.com/mapbox.js/example/v1.0.0/toggle-baslayers/
+
+		// Leaflet Marker Clusterer 
+		var markers = new L.MarkerClusterGroup();
+		markers.addLayer(fontane);
+		// ... Add more layers ...
+		map.addLayer(markers);
 
 	</script>
 </body>

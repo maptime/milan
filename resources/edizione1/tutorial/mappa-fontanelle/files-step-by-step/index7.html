@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>A simple map</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<style type="text/css" media="screen">
+		body { margin:0; padding:0; }
+    	#map { position:absolute; top:0; bottom:0; width:100%; }
+	</style>
+</head>
+<body>
+	
+	<div id='map'> </div>
+
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <!-- Dati -->
+	<script src="data/fontanelle.js"> </script> 
+
+    <script >
+
+		//creo una mappa con relativa posizione e zoom iniziali
+		 var map = L.map('map').setView([45.4588, 9.2010], 15);
+
+		//aggiungo un layer di sfondo, o Base Layer
+		var baseLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://	mapbox.com">Mapbox</a>',
+				maxZoom: 18
+			}).addTo(map);
+
+		// Icona Marker
+		var openDotIcon = L.icon({
+		    iconUrl: 'img/opendot-marker.png',
+		    shadowUrl: 'img/opendot-marker-shadow.png',
+		    iconSize:     [80, 80], // size of the icon
+		    shadowSize:   [80, 80], // size of the shadow
+		    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+		    shadowAnchor: [0, 0],  // the same for the shadow
+		    popupAnchor:  [60, 15] // point from which the popup should open relative to the iconAnchor
+		});
+		//Marker
+		var openDotMarker = L.marker([45.448198, 9.222020],
+			{ icon: openDotIcon}) // NOTA: questa opzione non era presente prima
+		    .bindPopup('<b>Opendot</b> <br> Weeeee!')
+		    .openPopup()
+		    .addTo(map); 
+		
+		
+		// Icona GeoJSON
+		var fontanella = L.icon ({
+			iconUrl: 'img/vedovella.png',
+			shadowUrl: 'img/vedovella-shadow.png',
+		    iconSize:     [80, 93], // size of the icon
+		    shadowSize:   [80, 93], // size of the shadow
+		    iconAnchor:   [0, 0 ], // point of the icon which will correspond to marker's location
+		    shadowAnchor: [0, 0],  // the same for the shadow
+		    popupAnchor:  [45, 10] // point from which the popup should open relative to the iconAnchor
+		});
+		// Dati GeoJSON
+		var fontane = L.geoJson(fontanelle, {
+			pointToLayer : function  (feature, latlng) {
+				lat = feature.geometry.coordinates[0];
+				lng = feature.geometry.coordinates[1];
+				return L.marker([lng,lat],
+				 {icon: fontanella}) // NOTA: questa opzione non era presente prima
+				 .bindPopup("Andiamo a bere al Bar del Drago Verde!");
+			}
+		}).addTo(map);
+
+
+		// Mapbox Streets
+		// ---------------
+		var mapboxTilesStreet = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-i86nkdio/{z}/{x}/{y}.png', {
+		        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+		    })
+		
+		// Mapbox Medieval
+		// ---------------
+		var mapboxTilesMedieval = L.tileLayer('https://{s}.tiles.mapbox.com/v3/spatial.b625e395/{z}/{x}/{y}.png', {
+		        attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+		    }); 
+
+		// Creo due oggetti con i riferimenti rispettivamente ai BaseLayers ed ai FeatureLayers
+		var baseMaps={
+			"Sfondo OSM": baseLayer,
+			"Sfondo Mapbox Streets": mapboxTilesStreet,
+			"Sfondo Mapbox Medieval": mapboxTilesMedieval
+		};
+		var featureLayers={
+			"Vedovelle": fontane,
+			"Logo Opendot" : openDotMarker
+		};
+		// Creo i controlli
+		L.control.layers(baseMaps, featureLayers).addTo(map);
+		// Per un metodo moolto più succinto (che usa però Mapbox.js) guardare questo link: https://www.mapbox.com/mapbox.js/example/v1.0.0/toggle-baslayers/
+
+	</script>
+</body>
+</html>

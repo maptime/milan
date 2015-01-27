@@ -50,7 +50,7 @@ var openDotIcon = L.icon({
 
 // GeoJSON
 // --------- 
-// Dati
+// Dati GeoJSON
 var fontane = L.geoJson(fontanelle, {
 	pointToLayer : function  (feature, latlng) {
 		lat = feature.geometry.coordinates[0];
