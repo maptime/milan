@@ -10,4 +10,4 @@ Le presentazioni vengono renderizzate all'indirizzo:
 
 ```
 http://maptime.io/milan/<NOME-EDIZIONE>/slides/<NOME-PRESENTAZIONE>/index.html
-``
+```
