@@ -1,13 +1,13 @@
 # Maptime Milan site!
 
-Repo per il sito di maptimeMI. Basato su Jekyll + Github Pages e maptime Starter Site.
+Repo per il sito di maptimeMI. Basato su Ghost + Buster e Uno-Zen Theme.
 
-L'indirizzo del sito è: www.maptime.io/milan
+Il sito è online qui: [maptime.io/milan](www.maptime.io/milan)
 
-Le presentazioni ed i dati dei tutorial si trovano nella directory `resources`.
+In questo branch si trovano le presentazioni, i dati ed i tutorial delle varie serate.
 
 Le presentazioni vengono renderizzate all'indirizzo:
 
 ```
-http://maptime.io/milan/resources/<NOME-EDIZIONE>/slides/<NOME-PRESENTAZIONE>/index.html
+http://maptime.io/milan/<NOME-EDIZIONE>/slides/<NOME-PRESENTAZIONE>/index.html
 ``
