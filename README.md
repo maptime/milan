@@ -2,7 +2,7 @@
 
 Repo per il sito di maptimeMI. Basato su Ghost + Buster e Uno-Zen Theme.
 
-Il sito è online qui: [maptime.io/milan](www.maptime.io/milan)
+Il sito è online qui: [maptime.io/milan](https://www.maptime.io/milan)
 
 In questo branch si trovano le presentazioni, i dati ed i tutorial delle varie serate.
 
