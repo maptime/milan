@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>About - MaptimeMilan</title>
+
+  <meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon-60x60.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-touch-icon-76x76.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-114x114.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-touch-icon-120x120.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-touch-icon-144x144.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-touch-icon-152x152.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon-180x180.png?v=wAAv6Wqe6l">
+<link rel="icon" type="image/png" href="assets/img/favicon-32x32.png?v=wAAv6Wqe6l" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:2368/assets/img/favicon-194x194.png?v=wAAv6Wqe6l" sizes="194x194">
+<link rel="icon" type="image/png" href="assets/img/favicon-96x96.png?v=wAAv6Wqe6l" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/img/android-chrome-192x192.png?v=wAAv6Wqe6l" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/img/favicon-16x16.png?v=wAAv6Wqe6l" sizes="16x16">
+<link rel="manifest" href="assets/img/manifest.json?v=wAAv6Wqe6l">
+<link rel="shortcut icon" href="assets/img/favicon.ico?v=wAAv6Wqe6l">
+<meta name="msapplication-TileColor" content="#e74c3c">
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
+<meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
+<meta name="theme-color" content="#e74c3c">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/uno.css?v=9715995d6c" />
+
+  <link rel="canonical" href="about" />
+    <meta name="generator" content="Ghost 0.6" />
+    <link rel="alternate" type="application/rss+xml" title="MaptimeMilan" href="rss/index.html" />
+
+</head>
+<body class="post-template page-template page page-about page-template-about">
+
+  <section id="menu-button" class="expanded">
+    <a><i class="icon icon-list"></i></a>
+  </section>
+
+  <aside class="cover">
+
+  <div class="cover container">
+    <div class="profile">
+      <a id="avatar-link" title="link to homepage for MaptimeMilan" href="index.html#open">
+        <img src="content/images/2015/08/maptimemiLogo.png" alt="MaptimeMilan avatar" class="profile avatar hvr-buzz-out" />
+        <h1>Maptime Milan</h1>
+        <h3 id="profile-resume">I principianti sono i benvenuti!</h3>
+      </a>
+
+      <hr class="divider long" />
+      <p>Un luogo per imparare a mappare all&#x27;ombra della Madonnina // A place for learning and hacking on maps in Milan, Italy.</p>
+      <hr class="divider short" />
+      <div class="navigation">
+        <div class="profile contact">
+          <nav class="navigation left">
+  <ul class="links">
+    <li class="links item">
+      <a href="index.html#open" class="link-item" title="link to MaptimeMilan blog" id="blog-button">Blog</a>
+      <a href="about" class="link-item" title="" id="tags-button">About</a>
+      <a href="mailto:milan@maptime.io?subject=Hallo hallo!" class="link-item" title="" id="contact-button">Contact</a>
+    </li>
+  </ul>
+</nav>
+          
+<nav class="navigation right">
+  <ul class="social expanded">
+
+  <!-- Twitter -->
+  <li class="social item hvr-grow-rotate">
+    <a target="blank" href="http://twitter.com/MaptimeMI" title="@Kikobeats on Twitter">
+      <i class='icon icon-social-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  <!-- Linkedin -->
+
+  <!-- Github -->
+  <li class="social item hvr-grow-rotate">
+    <a target="blank" href="https://github.com/maptime/milan" title="Kikobeats on Github">
+      <i class='icon icon-social-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+  <!-- RSS -->
+
+  </ul>
+</nav>
+          <section class="icon icon-search" id="search-container">
+  <hr class="divider short" />
+  <form id="search-form">
+    <input type="text", name="search", placeholder="git, css, javascript,..." id="search-field" />
+  </form>
+</section>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+  <main>
+    <section id="search-results"></section>
+    <section class="content">
+      
+
+  <article class="post page">
+    <header>
+      <h1 id="post-title">About</h1>
+    </header>
+
+    <section class="post page">
+      <p>Maptime is a regular <strong>mapping meeting</strong> in Milano, a chapter of the international network <a href="http://www.maptime.io"><strong>Maptime</strong></a>!. <br />
+Starting in December2014, <strong>we will meet to work and draw on maps</strong>, learn about geospatial data, and teach each other the latest cartographic tools. Maptime is time for mapmaking. <strong>Our mission is to open the doors of cartographic possibility to anyone</strong> interested by creating a time and space for collaborative learning, exploration, and map creation using mapping tools and technologies. This open learning environment for all levels and degrees of knowledge offers intentional support for the beginner. Maptime is hands-on, so don’t forget to bring your laptop! <strong>All skill levels are welcome. Newbies are especially welcome!</strong>  </p>
+
+<p>Maptime è un <strong>appuntamento periodico di mappatura</strong>, a Milano. Siamo una sezione della rete internazionale Maptime! e <strong>ci incontriamo, dal Dicembre 2014 per lavorare sulle mappe</strong>, disegnare, usare i più moderni strumenti cartografici, gestire dati geo-spaziali, ed imparare facendo! La nostra missione <strong>è allargare le possibilità di gestione cartografica a chiunque</strong> sia interessato ad una forma snella ed efficace di esplorazione collaborativa e utilizzo delle tecnologie di mappatura. Questo spazio di formazione è indirizzato a tutti i livelli di conoscenza delle tematiche geo-spaziali e offre supporto costante a chi iniza. <strong>A Maptime si lavora insieme. Non dimenticate quindi di portare il vostro laptop, e ricordate che i neofiti sono i benvenuti!</strong></p>
+
+<p>MaptimeMilan è:  </p>
+
+<ul>
+<li>Michele Ferretti <a href="http://localhost:2368/about/twitter.com/miccferr">@miccferr</a></li>
+<li>Fabio Manfredini</li>
+<li>Stefano Saloriani <a href="http://localhost:2368/about/twitter.com/StefanoSalo">@StefanoSalo</a></li>
+</ul>
+
+<p>Foto di copertina: <br />
+Daniele Niccolini <a href="http://www.danieleniccolini.com/">http://www.danieleniccolini.com/</a></p>
+    </section>
+
+  </article>
+
+
+      <footer>
+  <span class="copyright">
+    &copy; 2015. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
+  </span>
+</footer>
+    </section>
+  </main>
+
+  <script src="public/jquery.js?v=9715995d6c"></script>
+  <script type="text/javascript" src="assets/js/uno.js?v=9715995d6c"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-34372837-2', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
