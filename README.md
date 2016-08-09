@@ -1,13 +1,6 @@
-# Maptime Milan site!
+# Maptime Milan!
 
-Repo per il sito di maptimeMI. Basato su Ghost + Buster e Uno-Zen Theme.
 
-Il sito è online qui: [maptime.io/milan](http://maptime.io/milan)
+In questa repository si trovano le presentazioni, i dati ed i tutorial dei vari meetup.
 
-In questo branch si trovano le presentazioni, i dati ed i tutorial delle varie serate.
-
-Le presentazioni vengono renderizzate all'indirizzo:
-
-```
-http://maptime.io/milan/<NOME-EDIZIONE>/slides/<NOME-PRESENTAZIONE>/index.html
-```
+Il sito di MaptimeMI è invece online a questo indirizzo: [maptime.io/milan](http://maptime.io/milan).
